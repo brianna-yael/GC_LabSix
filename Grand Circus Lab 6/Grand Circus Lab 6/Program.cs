@@ -16,22 +16,33 @@ namespace labSix
                 Console.WriteLine("Welcome to the Pig Latin translator! Please enter a word for translation!");
                 string inputWord = Console.ReadLine().ToLower();
 
+
                 char[] letters = inputWord.ToCharArray();
                 foreach (char l in letters)
                 {
                     bool b = IsVowel(l);
                     if (b == true)
                     {
-                        Console.WriteLine(l + " is a vowel!");
+                        int v = inputWord.IndexOf(l);
+                        string vowelEnd = inputWord.Substring(0, v);
+                        string vowelBegin = inputWord.Substring(v);
+                        Console.WriteLine(vowelBegin + "-" + vowelEnd + "ay");
+                        break;
                     }
                     else
                     {
-                        Console.WriteLine(l + " is not a vowel!");
+                        Console.WriteLine("No");
                     }
                 }
                 run = Continue();
             }
         }
+
+        public static void PigLatinCalc(string s, int i)
+        {
+
+        }
+
 
         public static bool IsVowel(char c)
         {
