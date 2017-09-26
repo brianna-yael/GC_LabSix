@@ -18,31 +18,28 @@ namespace labSix
 
 
                 char[] letters = inputWord.ToCharArray();
-                foreach (char l in letters)
+                if (IsVowel(letters[0]))
                 {
-                    bool b = IsVowel(l);
-                    if (b == true)
+                    Console.WriteLine(inputWord + "-way");
+                }
+                else
+                {
+                    foreach (char l in letters)
                     {
-                        int v = inputWord.IndexOf(l);
-                        string vowelEnd = inputWord.Substring(0, v);
-                        string vowelBegin = inputWord.Substring(v);
-                        Console.WriteLine(vowelBegin + "-" + vowelEnd + "ay");
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("No");
+                        bool b = IsVowel(l);
+                        if (b == true)
+                        {
+                            int v = inputWord.IndexOf(l);
+                            string vowelEnd = inputWord.Substring(0, v);
+                            string vowelBegin = inputWord.Substring(v);
+                            Console.WriteLine(vowelBegin + "-" + vowelEnd + "ay");
+                            break;
+                        }
                     }
                 }
                 run = Continue();
             }
         }
-
-        public static void PigLatinCalc(string s, int i)
-        {
-
-        }
-
 
         public static bool IsVowel(char c)
         {
